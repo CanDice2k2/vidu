@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Student Information</title>
+</head>
+<body>
+    <div>
+        <label for="studentId">Enter Student ID:</label>
+        <input type="text" id="studentId">
+        <button onclick="getStudentInfo()">Get Student Info</button>
+    </div>
+    <div id="studentInfo"></div>
+
+    <script>
+        function getStudentInfo() {
+            const studentId = document.getElementById("studentId").value;
+            const url = `http://localhost:8080/get?id=${studentId}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const studentInfoDiv = document.getElementById("studentInfo");
+                    studentInfoDiv.innerHTML = `
+                        <h3>Student Information</h3>
+                        <p><strong>ID:</strong> ${data.id}</p>
+                        <p><strong>Name:</strong> ${data.name}</p>
+                        <p><strong>Age:</strong> ${data.age}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
