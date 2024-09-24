@@ -27,3 +27,4 @@ Validator.isRequired = function(input){
 Validator.isEmail = function(input){
     // return input.includes('@');
 }
+//commit from branch main
