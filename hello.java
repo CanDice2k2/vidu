@@ -4,5 +4,6 @@ public static void main(String[] args) {
     Integer i = 4;
     System.out.println(i);
     //commit from branch duc
+    // 2nd commit from branch duc
 }
 }
